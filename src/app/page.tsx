@@ -11,7 +11,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center pt-20 pb-12 px-4 text-center animate-in fade-in zoom-in duration-700 relative z-10">
-        <div className="relative w-48 h-48 mb-8 drop-shadow-xl hover:scale-105 transition-transform duration-500">
+        <div className="relative w-64 h-64 mb-8 drop-shadow-xl hover:scale-105 transition-transform duration-500">
           <Image
             src="/Galdora_Logo.png"
             alt="Galdora Personalmanagement Logo"

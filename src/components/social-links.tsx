@@ -7,7 +7,7 @@ const socialLinks = [
   {
     name: "Instagram",
     icon: FaInstagram,
-    url: "https://instagram.com",
+    url: "https://www.instagram.com/galdora_gmbh/",
     // Instagram gradient
     className: "bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white border-none",
     iconColor: "text-white",
@@ -23,7 +23,7 @@ const socialLinks = [
   {
     name: "TikTok",
     icon: FaTiktok,
-    url: "https://tiktok.com",
+    url: "https://www.tiktok.com/@galdora1",
     // TikTok Black
     className: "bg-black text-white border-none",
     iconColor: "text-white",
@@ -31,7 +31,7 @@ const socialLinks = [
   {
     name: "LinkedIn",
     icon: FaLinkedin,
-    url: "https://linkedin.com",
+    url: "https://www.linkedin.com/company/galdora-personalmanagement/",
     // LinkedIn Blue
     className: "bg-[#0077b5] text-white border-none",
     iconColor: "text-white",
@@ -39,7 +39,7 @@ const socialLinks = [
   {
     name: "Website",
     icon: FaGlobe,
-    url: "https://galdora.de",
+    url: "https://www.galdora.de",
     // Neutral/Brand color (using a dark slate for contrast or brand color if known)
     className: "bg-slate-800 text-white border-none",
     iconColor: "text-white",

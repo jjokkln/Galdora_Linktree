@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Projekt Einblick",
+        "image": "/IMG_3363.jpeg",
+        "size": "col-span-2 row-span-2"
+    },
+    {
+        "id": 2,
+        "title": "Team Work",
+        "image": "/IMG_3364.jpeg",
+        "size": "col-span-1 row-span-1"
+    },
+    {
+        "id": 3,
+        "title": "On Site",
+        "image": "/IMG_3365.jpeg",
+        "size": "col-span-1 row-span-1"
+    },
+    {
+        "id": 4,
+        "title": "Meeting",
+        "image": "/IMG_3366.jpeg",
+        "size": "col-span-1 row-span-1"
+    },
+    {
+        "id": 5,
+        "title": "Office Life",
+        "image": "/IMG_3367.jpeg",
+        "size": "col-span-1 row-span-1"
+    }
+]

@@ -6,14 +6,14 @@ import { SnowEffect } from "@/components/snow-effect";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-blue-50 text-gray-900 font-sans relative">
+    <main className="min-h-screen bg-gradient-to-b from-blue-200 via-white to-blue-100 text-gray-900 font-sans relative">
       <SnowEffect />
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center pt-20 pb-12 px-4 text-center animate-in fade-in zoom-in duration-700 relative z-10">
         <div className="relative w-48 h-48 mb-8 drop-shadow-xl hover:scale-105 transition-transform duration-500">
           <Image
-            src="/Start.png"
+            src="/Galdora_Logo.png"
             alt="Galdora Personalmanagement Logo"
             fill
             className="object-contain"

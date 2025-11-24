@@ -2,31 +2,37 @@
 
 import { Card } from "@/components/ui/card";
 
-// Placeholder data for the collage
+// Real project images
 const newsItems = [
     {
         id: 1,
-        title: "Team Event 2024",
-        image: "https://placehold.co/600x400/e2e8f0/475569?text=Team+Event",
+        title: "Projekt Einblick",
+        image: "/IMG_3363.jpeg",
         size: "col-span-2 row-span-2",
     },
     {
         id: 2,
-        title: "New Office",
-        image: "https://placehold.co/300x300/f1f5f9/475569?text=Office",
+        title: "Team Work",
+        image: "/IMG_3364.jpeg",
         size: "col-span-1 row-span-1",
     },
     {
         id: 3,
-        title: "Workshop",
-        image: "https://placehold.co/300x300/f8fafc/475569?text=Workshop",
+        title: "On Site",
+        image: "/IMG_3365.jpeg",
         size: "col-span-1 row-span-1",
     },
     {
         id: 4,
-        title: "Summer Party",
-        image: "https://placehold.co/600x300/e2e8f0/475569?text=Summer+Party",
-        size: "col-span-2 row-span-1",
+        title: "Meeting",
+        image: "/IMG_3366.jpeg",
+        size: "col-span-1 row-span-1",
+    },
+    {
+        id: 5,
+        title: "Office Life",
+        image: "/IMG_3367.jpeg",
+        size: "col-span-1 row-span-1",
     },
 ];
 

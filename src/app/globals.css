@@ -120,3 +120,30 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Floating Hearts Animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.heart-float {
+  position: fixed;
+  bottom: -10vh;
+  animation: floatUp 10s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+  font-size: 24px;
+}

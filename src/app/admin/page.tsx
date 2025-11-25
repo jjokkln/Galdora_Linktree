@@ -11,6 +11,7 @@ export default function AdminPage() {
     const [items, setItems] = useState<NewsItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [uploading, setUploading] = useState(false);
+    const [currentTheme, setCurrentTheme] = useState<string>('standard');
 
     // Form state
     const [title, setTitle] = useState('');
@@ -19,7 +20,36 @@ export default function AdminPage() {
 
     useEffect(() => {
         fetchItems();
+        fetchSettings();
     }, []);
+
+    const fetchSettings = async () => {
+        try {
+            const res = await fetch('/api/settings');
+            const data = await res.json();
+            setCurrentTheme(data.theme);
+        } catch (error) {
+            console.error('Error fetching settings:', error);
+        }
+    };
+
+    const handleThemeChange = async (theme: string) => {
+        try {
+            const res = await fetch('/api/settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ theme }),
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setCurrentTheme(data.theme);
+                alert(`Theme updated to ${theme}!`);
+            }
+        } catch (error) {
+            console.error('Error updating theme:', error);
+            alert('Failed to update theme');
+        }
+    };
 
     const fetchItems = async () => {
         try {
@@ -107,6 +137,39 @@ export default function AdminPage() {
                         Back to Site
                     </Button>
                 </div>
+
+                {/* Theme Selection */}
+                <Card className="p-6 mb-8">
+                    <h2 className="text-xl font-semibold mb-4">Website Theme</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <Button 
+                            variant={currentTheme === 'standard' ? 'default' : 'outline'}
+                            onClick={() => handleThemeChange('standard')}
+                            className="h-24 flex flex-col gap-2"
+                        >
+                            <span className="text-2xl">👔</span>
+                            Standard
+                        </Button>
+                        <Button 
+                            variant={currentTheme === 'christmas' ? 'default' : 'outline'}
+                            onClick={() => handleThemeChange('christmas')}
+                            className="h-24 flex flex-col gap-2 bg-red-50 hover:bg-red-100 border-red-200 text-red-900 data-[state=active]:bg-red-600 data-[state=active]:text-white"
+                            style={currentTheme === 'christmas' ? { backgroundColor: '#dc2626', color: 'white' } : {}}
+                        >
+                            <span className="text-2xl">🎄</span>
+                            Christmas
+                        </Button>
+                        <Button 
+                            variant={currentTheme === 'valentine' ? 'default' : 'outline'}
+                            onClick={() => handleThemeChange('valentine')}
+                            className="h-24 flex flex-col gap-2 bg-pink-50 hover:bg-pink-100 border-pink-200 text-pink-900"
+                            style={currentTheme === 'valentine' ? { backgroundColor: '#db2777', color: 'white' } : {}}
+                        >
+                            <span className="text-2xl">💘</span>
+                            Valentine's
+                        </Button>
+                    </div>
+                </Card>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Add New Project Form */}

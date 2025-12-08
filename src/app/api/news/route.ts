@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getNewsItems, addNewsItem, deleteNewsItem, NewsItem } from '@/lib/data';
+import { getNewsItems, saveNewsItems, NewsItem } from '@/lib/data';
 
 export async function GET() {
     const items = await getNewsItems();
@@ -8,17 +8,17 @@ export async function GET() {
 
 export async function POST(request: Request) {
     const body = await request.json();
-    // validation could be improved, but relying on frontend for now
+    const items = await getNewsItems();
 
-    const newItem = await addNewsItem({
+    const newItem: NewsItem = {
+        id: Date.now(),
         title: body.title,
         image: body.image,
         size: body.size || "col-span-1 row-span-1",
-    });
+    };
 
-    if (!newItem) {
-        return NextResponse.json({ error: 'Failed to create item' }, { status: 500 });
-    }
+    items.push(newItem);
+    await saveNewsItems(items);
 
     return NextResponse.json(newItem);
 }
@@ -31,11 +31,10 @@ export async function DELETE(request: Request) {
         return NextResponse.json({ error: 'ID is required' }, { status: 400 });
     }
 
-    const success = await deleteNewsItem(Number(id));
+    const items = await getNewsItems();
+    const filteredItems = items.filter((item) => item.id !== Number(id));
 
-    if (!success) {
-        return NextResponse.json({ error: 'Failed to delete item' }, { status: 500 });
-    }
+    await saveNewsItems(filteredItems);
 
     return NextResponse.json({ success: true });
 }

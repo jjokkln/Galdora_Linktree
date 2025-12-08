@@ -4,7 +4,11 @@ import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { NewsItem } from "@/lib/data";
 
-export function NewsCollage() {
+interface Props {
+    theme?: string;
+}
+
+export function NewsCollage({ theme }: Props) {
     const [items, setItems] = useState<NewsItem[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -30,7 +34,7 @@ export function NewsCollage() {
 
     return (
         <div className="w-full max-w-4xl mx-auto p-4">
-            <h2 className="text-2xl font-bold text-center mb-8 text-gray-800">Aktuelles</h2>
+            <h2 className={`text-2xl font-bold text-center mb-8 ${theme === 'christmas' ? 'text-yellow-400 drop-shadow-md' : 'text-gray-800'}`}>Aktuelles</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[150px]">
                 {items.map((item) => (
                     <Card

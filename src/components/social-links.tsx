@@ -46,7 +46,12 @@ const socialLinks = [
   },
 ];
 
-export function SocialLinks() {
+interface Props {
+  theme?: string;
+}
+
+export function SocialLinks({ theme }: Props) {
+  const isChristmas = theme === 'christmas';
   return (
     <div className="w-full max-w-md mx-auto space-y-4 p-4">
       {socialLinks.map((link) => (
@@ -57,7 +62,8 @@ export function SocialLinks() {
           rel="noopener noreferrer"
           className="block group"
         >
-          <Card className={`p-4 relative flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-[1.02] ${link.className}`}>
+          <Card className={`p-4 relative flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-[1.02] ${link.className} ${isChristmas ? 'border-2 border-yellow-500/30 hover:shadow-yellow-500/20' : ''
+            }`}>
             <div className="absolute left-4 flex items-center">
               <link.icon className={`w-6 h-6 ${link.iconColor} group-hover:scale-110 duration-300`} />
             </div>

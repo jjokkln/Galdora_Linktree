@@ -19,7 +19,8 @@ export default async function Home() {
   let separatorClass = "bg-gray-200";
 
   if (theme === 'christmas') {
-    bgClass = "bg-gradient-to-b from-[rgb(40,0,0)] via-[rgb(80,0,0)] to-[rgb(0,30,0)]";
+    // Vibrant 'knallig' Christmas red transitioning to deep green
+    bgClass = "bg-gradient-to-b from-[#ff0000] via-[#cc0000] to-[#004d00]";
     textClass = "text-white";
     subTextClass = "text-red-100/90";
     footerClass = "bg-black/30 backdrop-blur-sm border-t border-white/10 text-red-100/70";

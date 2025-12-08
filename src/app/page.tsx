@@ -17,13 +17,16 @@ export default async function Home() {
   let subTextClass = "text-gray-600";
   let footerClass = "bg-white/80 backdrop-blur-sm border-t border-gray-100 text-gray-500";
   let separatorClass = "bg-gray-200";
+  let fontClass = "font-sans";
 
   if (theme === 'christmas') {
-    bgClass = "bg-gradient-to-b from-red-900 via-red-800 to-green-900";
-    textClass = "text-white";
-    subTextClass = "text-red-100";
-    footerClass = "bg-black/20 backdrop-blur-sm border-t border-white/10 text-red-100";
-    separatorClass = "bg-white/20";
+    // Deep rich Christmas night gradient
+    bgClass = "bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-950 via-green-950 to-slate-950";
+    textClass = "text-red-50";
+    subTextClass = "text-green-100/90";
+    footerClass = "bg-black/40 backdrop-blur-md border-t border-white/10 text-red-100/70";
+    separatorClass = "bg-gradient-to-r from-transparent via-red-500/50 to-transparent";
+    fontClass = "font-[family-name:var(--font-mountains-of-christmas)] tracking-wider";
   } else if (theme === 'valentine') {
     bgClass = "bg-gradient-to-b from-pink-200 via-white to-pink-100";
     textClass = "text-pink-900";
@@ -33,7 +36,7 @@ export default async function Home() {
   }
 
   return (
-    <main className={`min-h-screen ${bgClass} ${textClass} font-sans relative transition-colors duration-500`}>
+    <main className={`min-h-screen ${bgClass} ${textClass} ${fontClass} relative transition-colors duration-500`}>
       {theme === 'christmas' && <SnowEffect />}
       {theme === 'valentine' && <HeartEffect />}
 
